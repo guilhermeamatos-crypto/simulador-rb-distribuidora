@@ -82,7 +82,7 @@ body {
 
 .rb-logo { 
     /* Pode ser ajustado se o logo da RB tiver dimensões diferentes */
-    max-height: 50px; 
+    max-height: 100px; 
 }
 
 .header h1 {
