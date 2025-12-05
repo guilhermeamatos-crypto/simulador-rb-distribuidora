@@ -6,9 +6,9 @@
 }
 
 :root {
-    /* CORES AJUSTADAS PARA RB DISTRIBUIDORA (Vermelho/Bordô) */
-    --color-primary: #8a0b0b; /* Bordô Escuro */
-    --color-secondary: #c0392b; /* Vermelho Mais Claro */
+    /* CORES RESTAURADAS PARA O TEMA AZUL DA TOTAL DISTRIBUIDORA */
+    --color-primary: #1e4d7b; /* Azul Escuro */
+    --color-secondary: #2d5f8d; /* Azul Mais Claro */
     
     --color-success: #4caf50; /* Mantido verde para "Rebaixa" */
     --color-warning: #ffc107; /* Mantido amarelo para "Incentivo" */
@@ -162,7 +162,7 @@ body {
 
 /* Células de resultado */
 .result-cell {
-    background-color: #fbecec; /* Levemente rosado para RB */
+    background-color: #e6f0ff; /* Azul Claro para resultado */
     font-weight: 600;
     color: var(--color-text);
     width: 25%;
@@ -232,7 +232,6 @@ body {
     color: var(--color-text);
 }
 
-/* A CLASSE .outros FOI REMOVIDA DEVIDO À EXCLUSÃO DA LINHA */
 
 /* Inputs */
 input[type="text"] {
@@ -250,7 +249,7 @@ input[type="text"] {
 input[type="text"]:focus {
     outline: none;
     border-color: var(--color-primary);
-    box-shadow: 0 0 4px rgba(138, 11, 11, 0.3);
+    box-shadow: 0 0 4px rgba(30, 77, 123, 0.3);
 }
 
 .highlight-row input[type="text"],
@@ -326,8 +325,8 @@ input[type="text"]:focus {
 }
 
 .btn-print:hover {
-    background-color: #6a0808;
-    box-shadow: 0 4px 8px rgba(138, 11, 11, 0.3);
+    background-color: #1a4165;
+    box-shadow: 0 4px 8px rgba(30, 77, 123, 0.3);
 }
 
 .btn:active {

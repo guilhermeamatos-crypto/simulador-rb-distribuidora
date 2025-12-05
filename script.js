@@ -50,13 +50,13 @@ function calculateResults() {
     const ipi1Percent = percentageToNumber(document.getElementById('ipi1').value);
     const st1Percent = percentageToNumber(document.getElementById('st1').value);
     
-    // CÁLCULO 1: D2 (result_base_mirror) = B2
+    // CÁLCULO 1: Espelhamento
     const result_base_mirror = base1;
     document.getElementById('result_base_mirror').textContent = formatCurrency(result_base_mirror);
     
-    // CÁLCULO 2: IPI (result_ipi1) = D2 + (D2 * B3)
+    // CÁLCULO 2: IPI
     const resultIpi1 = base1 + (base1 * ipi1Percent / 100);
-    // CÁLCULO 3: ST (result_st1) = D3 + (D3 * B4)
+    // CÁLCULO 3: ST
     const resultSt1 = resultIpi1 + (resultIpi1 * st1Percent / 100);
     
     document.getElementById('result_ipi1').textContent = formatCurrency(resultIpi1);
@@ -67,15 +67,15 @@ function calculateResults() {
     const ipi2Percent = percentageToNumber(document.getElementById('ipi2').value);
     const st2Percent = percentageToNumber(document.getElementById('st2').value);
     
-    // CÁLCULO 4: IPI (result_ipi2) = B5 + (B5 * B6)
+    // CÁLCULO 4: IPI
     const resultIpi2 = novoBase + (novoBase * ipi2Percent / 100);
-    // CÁLCULO 5: ST (result_st2) = D6 + (D6 * B7)
+    // CÁLCULO 5: ST
     const resultSt2 = resultIpi2 + (resultIpi2 * st2Percent / 100);
     
     document.getElementById('result_ipi2').textContent = formatCurrency(resultIpi2);
     document.getElementById('result_st2').textContent = formatCurrency(resultSt2);
     
-    // CÁLCULO 6: Valor para rebaixa (result_rebaixa) = D4 - D7
+    // CÁLCULO 6: Valor para rebaixa
     const valorRebaixa = resultSt1 - resultSt2;
     document.getElementById('result_rebaixa').textContent = formatCurrency(valorRebaixa);
     
@@ -102,9 +102,6 @@ function calculateResults() {
     // 4. CÁLCULO Incentivo (result_incentivo)
     const resultIncentivo = resultSt3 - incentivo;
     document.getElementById('result_incentivo').textContent = formatCurrency(resultIncentivo);
-    
-    // O antigo CÁLCULO 10 ("Outros (Total)") FOI REMOVIDO.
-    // O CÁLCULO MC agora usa o resultado do Incentivo diretamente.
     
     // 5. CÁLCULO MC (result_mc) = D(Incentivo) + (D(Incentivo) * B(MC))
     const resultMc = resultIncentivo + (resultIncentivo * mcPercent / 100);
