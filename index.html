@@ -16,15 +16,13 @@
             <h1>Simulador RB Distribuidora</h1>
         </header>
 
-        <main class="main-content">
-            <section class="calculator-section">
+        <main class="main-content grid-layout"> <section class="calculator-section section-rebaixa">
+                <h2 class="section-title">SIMULADOR DE REBAIXA DE PREÇO</h2>
                 <div class="table-wrapper">
                     <table class="calculator-table">
                         <thead>
                             <tr>
-                                <th colspan="2">$ Base</th>
-                                <th colspan="2">Resultado</th>
-                            </tr>
+                                <th colspan="2"></th> <th colspan="2">R$ 0,00</th> </tr>
                         </thead>
                         <tbody>
                             <tr>
@@ -99,14 +97,13 @@
                 </div>
             </section>
 
-            <section class="calculator-section">
+            <section class="calculator-section section-venda">
+                <h2 class="section-title">SIMULADOR DE PREÇO DE VENDA</h2>
                 <div class="table-wrapper">
                     <table class="calculator-table">
                         <thead>
                             <tr>
-                                <th colspan="2">$ Base</th>
-                                <th colspan="2">Resultado</th>
-                            </tr>
+                                <th colspan="2"></th> <th colspan="2">R$ 0,00</th> </tr>
                         </thead>
                         <tbody>
                             <tr>
@@ -157,6 +154,16 @@
                                 <td class="label">MC</td>
                                 <td class="result-cell">
                                     <span id="result_mc" class="result-value">R$ 0,00</span>
+                                </td>
+                            </tr>
+                            <tr class="highlight-row mkp-shopper">
+                                <td class="label">MKP Shopper</td>
+                                <td class="input-cell">
+                                    <input type="text" id="mkp_shopper" class="percentage-input" placeholder="0,00%" value="0,00%">
+                                </td>
+                                <td class="label"></td>
+                                <td class="result-cell">
+                                    <span id="result_mkp_shopper" class="result-value">R$ 0,00</span>
                                 </td>
                             </tr>
                             </tbody>

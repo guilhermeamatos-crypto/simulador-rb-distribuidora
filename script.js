@@ -45,7 +45,7 @@ function formatPercentageInput(input) {
 
 // Função para calcular resultados
 function calculateResults() {
-    // === Primeira tabela ===
+    // === Primeira tabela (SIMULADOR DE REBAIXA DE PREÇO) ===
     const base1 = currencyToNumber(document.getElementById('base1').value);
     const ipi1Percent = percentageToNumber(document.getElementById('ipi1').value);
     const st1Percent = percentageToNumber(document.getElementById('st1').value);
@@ -79,12 +79,13 @@ function calculateResults() {
     const valorRebaixa = resultSt1 - resultSt2;
     document.getElementById('result_rebaixa').textContent = formatCurrency(valorRebaixa);
     
-    // === Segunda tabela (Cálculo "Outros (Total)" REMOVIDO) ===
+    // === Segunda tabela (SIMULADOR DE PREÇO DE VENDA) ===
     const base2 = currencyToNumber(document.getElementById('base2').value);
     const ipi3Percent = percentageToNumber(document.getElementById('ipi3').value);
     const st3Percent = percentageToNumber(document.getElementById('st3').value);
     const incentivo = currencyToNumber(document.getElementById('incentivo').value);
     const mcPercent = percentageToNumber(document.getElementById('mc').value);
+    const mkpShopperPercent = percentageToNumber(document.getElementById('mkp_shopper').value); // NOVO: Leitura do MKP Shopper
 
     
     // 1. Espelhamento do $ Base (base2)
@@ -106,9 +107,14 @@ function calculateResults() {
     // 5. CÁLCULO MC (result_mc) = D(Incentivo) + (D(Incentivo) * B(MC))
     const resultMc = resultIncentivo + (resultIncentivo * mcPercent / 100);
     document.getElementById('result_mc').textContent = formatCurrency(resultMc);
+
+    // 6. CÁLCULO MKP Shopper (NOVO) = resultado MC * (1 + (MKP Shopper / 100))
+    // O valor do MKP Shopper (mkpShopperPercent) já está em número (ex: 30 para 30%), então precisa dividir por 100.
+    const resultMkpShopper = resultMc * (1 + (mkpShopperPercent / 100));
+    document.getElementById('result_mkp_shopper').textContent = formatCurrency(resultMkpShopper);
 }
 
-// REMOÇÃO DO CÁLCULO AUTOMÁTICO - Apenas Formatação no 'blur'
+// REMOÇÃO DO CÁLCULO AUTOMÁTICO - Apenas Formatação no 'blur' (Mantido)
 document.querySelectorAll('.currency-input, .percentage-input').forEach(input => {
     input.addEventListener('blur', () => {
         if (input.classList.contains('currency-input')) {
@@ -119,7 +125,7 @@ document.querySelectorAll('.currency-input, .percentage-input').forEach(input =>
     });
 });
 
-// Event listener para o botão de calcular
+// Event listener para o botão de calcular (Mantido)
 document.getElementById('calculateBtn').addEventListener('click', () => {
     document.querySelectorAll('.currency-input, .percentage-input').forEach(input => {
         if (input.matches(':focus')) {
@@ -146,7 +152,7 @@ document.getElementById('printBtn').addEventListener('click', () => {
     window.print();
 });
 
-// Inicializa os cálculos ao carregar a página
+// Inicializa os cálculos ao carregar a página (Mantido)
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.currency-input').forEach(formatCurrencyInput);
     document.querySelectorAll('.percentage-input').forEach(formatPercentageInput);
