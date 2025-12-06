@@ -108,7 +108,7 @@ function calculateResults() {
     const resultMc = resultIncentivo + (resultIncentivo * mcPercent / 100);
     document.getElementById('result_mc').textContent = formatCurrency(resultMc);
 
-    // 6. CÁLCULO MKP Shopper (CORRIGIDO: Acréscimo simples do percentual)
+    // 6. CÁLCULO MKP Shopper (Acréscimo simples do percentual)
     // Formula: Resultado MC + (Resultado MC * (MKP Shopper / 100))
     const resultMkpShopper = resultMc + (resultMc * mkpShopperPercent / 100);
     document.getElementById('result_mkp_shopper').textContent = formatCurrency(resultMkpShopper);

@@ -99,3 +99,82 @@
                     <table class="calculator-table">
                         <thead>
                             <tr>
+                                <th colspan="2"></th> 
+                                <th colspan="1"></th> 
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="label">$ Base</td>
+                                <td class="input-cell">
+                                    <input type="text" id="base2" class="currency-input" placeholder="0,00" value="0,00">
+                                </td>
+                                <td class="result-cell">
+                                    <span id="result_base2_mirror" class="result-value">R$ 0,00</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label">IPI</td>
+                                <td class="input-cell">
+                                    <input type="text" id="ipi3" class="percentage-input" placeholder="0,00%" value="0,00%">
+                                </td>
+                                <td class="result-cell">
+                                    <span id="result_ipi3" class="result-value">R$ 0,00</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label">ST</td>
+                                <td class="input-cell">
+                                    <input type="text" id="st3" class="percentage-input" placeholder="0,00%" value="0,00%">
+                                </td>
+                                <td class="result-cell">
+                                    <span id="result_st3" class="result-value">R$ 0,00</span>
+                                </td>
+                            </tr>
+                            <tr class="highlight-row incentivo">
+                                <td class="label">Incentivo</td>
+                                <td class="input-cell">
+                                    <input type="text" id="incentivo" class="currency-input" placeholder="0,00" value="0,00">
+                                </td>
+                                <td class="result-cell">
+                                    <span id="result_incentivo" class="result-value">R$ 0,00</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label">MC</td>
+                                <td class="input-cell">
+                                    <input type="text" id="mc" class="percentage-input" placeholder="0,00%" value="0,00%">
+                                </td>
+                                <td class="result-cell">
+                                    <span id="result_mc" class="result-value">R$ 0,00</span>
+                                </td>
+                            </tr>
+                            <tr class="highlight-row mkp-shopper">
+                                <td class="label">MKP Shopper</td>
+                                <td class="input-cell">
+                                    <input type="text" id="mkp_shopper" class="percentage-input" placeholder="0,00%" value="0,00%">
+                                </td>
+                                <td class="result-cell">
+                                    <span id="result_mkp_shopper" class="result-value">R$ 0,00</span>
+                                </td>
+                            </tr>
+                            </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <div class="action-buttons">
+                <button id="calculateBtn" class="btn btn-calculate">Calcular</button> 
+                <button id="resetBtn" class="btn btn-reset">Limpar</button>
+                <button id="printBtn" class="btn btn-print">Imprimir</button>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2025 RB Distribuidora - Simulador de Preços. Guilherme Matos.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
