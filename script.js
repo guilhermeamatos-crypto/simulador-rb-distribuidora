@@ -85,7 +85,7 @@ function calculateResults() {
     const st3Percent = percentageToNumber(document.getElementById('st3').value);
     const incentivo = currencyToNumber(document.getElementById('incentivo').value);
     const mcPercent = percentageToNumber(document.getElementById('mc').value);
-    const mkpShopperPercent = percentageToNumber(document.getElementById('mkp_shopper').value); // NOVO: Leitura do MKP Shopper
+    const mkpShopperPercent = percentageToNumber(document.getElementById('mkp_shopper').value); 
 
     
     // 1. Espelhamento do $ Base (base2)
@@ -108,9 +108,9 @@ function calculateResults() {
     const resultMc = resultIncentivo + (resultIncentivo * mcPercent / 100);
     document.getElementById('result_mc').textContent = formatCurrency(resultMc);
 
-    // 6. CÁLCULO MKP Shopper (NOVO) = resultado MC * (1 + (MKP Shopper / 100))
-    // O valor do MKP Shopper (mkpShopperPercent) já está em número (ex: 30 para 30%), então precisa dividir por 100.
-    const resultMkpShopper = resultMc * (1 + (mkpShopperPercent / 100));
+    // 6. CÁLCULO MKP Shopper (CORRIGIDO: Acréscimo simples do percentual)
+    // Formula: Resultado MC + (Resultado MC * (MKP Shopper / 100))
+    const resultMkpShopper = resultMc + (resultMc * mkpShopperPercent / 100);
     document.getElementById('result_mkp_shopper').textContent = formatCurrency(resultMkpShopper);
 }
 

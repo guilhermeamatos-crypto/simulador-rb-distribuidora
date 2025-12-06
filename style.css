@@ -6,19 +6,22 @@
 }
 
 :root {
-    /* CORES RESTAURADAS PARA O TEMA AZUL DA TOTAL DISTRIBUIDORA */
-    --color-primary: #1e4d7b; /* Azul Escuro */
-    --color-secondary: #2d5f8d; /* Azul Mais Claro */
+    /* CORES RESTAURADAS PARA O TEMA AZUL */
+    --color-primary: #1e4d7b; /* Azul Escuro (Cabeçalho, Títulos) */
+    --color-secondary: #2d5f8d; /* Azul Mais Claro (Label padrão) */
     
-    --color-success: #4caf50; /* Mantido verde para "Rebaixa" */
-    --color-warning: #ffc107; /* Mantido amarelo para "Incentivo" */
+    --color-success: #4caf50; /* Verde (Novo $ Base, Valor para Rebaixa) */
+    --color-warning: #ffc107; /* Amarelo (Incentivo) */
     
     --color-danger: #f44336;
     --color-text: #333;
     --color-border: #ddd;
     --color-bg: #f5f5f5;
     --color-white: #fff;
-    --color-mkp-shopper: #fff8e1; /* NOVO: Amarelo Pastel para MKP Shopper */
+    
+    /* NOVO: Amarelo Pastel para MKP Shopper */
+    --color-mkp-shopper: #fff8e1; 
+    
     --spacing-xs: 0.5rem;
     --spacing-sm: 1rem;
     --spacing-md: 1.5rem;
@@ -58,7 +61,7 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; /* CENTRALIZADO */
     gap: var(--spacing-md);
 }
 
@@ -76,17 +79,13 @@ body {
     filter: brightness(1.1);
 }
 
-/* Seletores para as logos */
-.baston-logo { 
-    max-height: 50px;
-}
-
-.rb-logo { 
-    max-height: 100px; 
-}
 /* NOVO: RB Logo menor */
 .rb-logo-small {
-    max-height: 60px;
+    max-height: 40px; /* Reduzido o tamanho da logo RB */
+}
+
+.baston-logo { 
+    max-height: 50px;
 }
 
 .header h1 {
@@ -104,20 +103,20 @@ body {
     margin-bottom: var(--spacing-lg);
 }
 
-/* NOVO: Layout de Grade para as Seções Lado a Lado */
+/* Layout de Grade para as Seções Lado a Lado */
 .main-content.grid-layout {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Duas colunas de largura igual */
+    grid-template-columns: 1fr 1fr; 
     gap: var(--spacing-lg);
 }
 
 @media (max-width: 1024px) {
     .main-content.grid-layout {
-        grid-template-columns: 1fr; /* Volta a ser uma coluna em telas menores */
+        grid-template-columns: 1fr;
     }
 }
 
-/* NOVO: Estilo para os Títulos das Seções */
+/* Estilo para os Títulos das Seções */
 .section-title {
     background: var(--color-primary);
     color: var(--color-white);
@@ -156,11 +155,11 @@ body {
 
 .calculator-table th {
     padding: var(--spacing-md);
-    text-align: left; /* Ajuste para o header vazio */
+    text-align: left;
     font-weight: 600;
     border: 1px solid var(--color-primary);
 }
-/* REMOVIDO: R$ 0,00 do cabeçalho, apenas th:last-child (Resultado) */
+/* Alinhamento da última coluna do cabeçalho */
 .calculator-table thead th:last-child {
     text-align: right; 
 }
@@ -172,118 +171,87 @@ body {
     vertical-align: middle;
 }
 
-.calculator-table tbody tr:nth-child(odd) {
-    background-color: #f9f9f9;
-}
-
-.calculator-table tbody tr:hover {
-    background-color: #f0f0f0;
-}
-
-/* Células de label */
+/* Células de label (Primeira Coluna A) */
 .label {
     background-color: var(--color-secondary);
     color: var(--color-white);
     font-weight: 500;
     text-align: left;
-    width: 45%; /* AUMENTADA LARGURA */
+    width: 45%; 
 }
 
-/* Células de input */
+/* Células de input (Segunda Coluna B) */
 .input-cell {
     background-color: var(--color-white);
-    width: 30%; /* AUMENTADA LARGURA */
+    width: 30%; 
 }
 
-/* Células de resultado */
+/* Células de resultado (Terceira Coluna D) */
 .result-cell {
     background-color: #e6f0ff; /* Azul Claro para resultado */
     font-weight: 600;
     color: var(--color-text);
-    width: 25%; /* REDUZIDA LARGURA */
+    width: 25%; 
     text-align: right;
 }
 
-/* Linhas destacadas (VERDE: Base/Rebaixa) */
-.highlight-row {
-    background-color: var(--color-success) !important;
+/* --- ESTILOS POR LINHA --- */
+
+/* Linhas com fundo Azul Escuro (Padrão) */
+.calculator-table tbody tr:not(.highlight-row) {
+    background-color: var(--color-secondary);
     color: var(--color-white);
 }
 
-.highlight-row .label {
-    background-color: var(--color-success);
+.calculator-table tbody tr:not(.highlight-row) .label {
+    background-color: var(--color-secondary);
     color: var(--color-white);
 }
 
-.highlight-row .result-cell {
-    background-color: var(--color-success);
-    color: var(--color-white);
+.calculator-table tbody tr:not(.highlight-row) .input-cell {
+    background-color: var(--color-white);
 }
 
-.highlight-row .input-cell {
-    background-color: var(--color-success);
-    color: var(--color-white);
-}
 
-/* Linha de novo base (Restaurado Verde) */
-.novo-base {
+/* Linhas de Destaque VERDE (Novo $ Base e Valor para Rebaixa) */
+.highlight-row.novo-base,
+.highlight-row.valor-rebaixa {
     background-color: var(--color-success) !important;
 }
 
-.novo-base .label,
-.novo-base .input-cell {
+.highlight-row.novo-base .label,
+.highlight-row.valor-rebaixa .label,
+.highlight-row.novo-base .result-cell,
+.highlight-row.valor-rebaixa .result-cell {
     background-color: var(--color-success);
     color: var(--color-white);
 }
 
-/* Linha de valor para rebaixa (Restaurado Verde) */
-.valor-rebaixa {
-    background-color: var(--color-success) !important;
-}
-
-.valor-rebaixa .label,
-.valor-rebaixa .result-cell {
+.highlight-row.novo-base .input-cell {
     background-color: var(--color-success);
-    color: var(--color-white);
 }
 
-/* Linha de incentivo (Restaurado Amarelo) */
-.incentivo {
+/* Linha de Incentivo (Amarelo Padrão) */
+.highlight-row.incentivo {
     background-color: var(--color-warning) !important;
     color: var(--color-text);
 }
 
-.incentivo .label {
+.highlight-row.incentivo .label,
+.highlight-row.incentivo .result-cell,
+.highlight-row.incentivo .input-cell {
     background-color: var(--color-warning);
     color: var(--color-text);
 }
 
-.incentivo .input-cell {
-    background-color: var(--color-warning);
-    color: var(--color-text);
-}
-
-.incentivo .result-cell {
-    background-color: var(--color-warning);
-    color: var(--color-text);
-}
-
-/* Linha de MKP Shopper (NOVO: Cor Pastel) */
+/* Linha de MKP Shopper (Amarelo Pastel) */
 .mkp-shopper {
     background-color: var(--color-mkp-shopper) !important;
     color: var(--color-text);
 }
 
-.mkp-shopper .label {
-    background-color: var(--color-mkp-shopper);
-    color: var(--color-text);
-}
-
-.mkp-shopper .input-cell {
-    background-color: var(--color-mkp-shopper);
-    color: var(--color-text);
-}
-
+.mkp-shopper .label,
+.mkp-shopper .input-cell,
 .mkp-shopper .result-cell {
     background-color: var(--color-mkp-shopper);
     color: var(--color-text);
@@ -301,23 +269,14 @@ input[type="text"] {
     background-color: var(--color-white);
     color: var(--color-text);
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    text-align: right; /* Alinhamento à direita para valores */
+    text-align: right; 
 }
 
-input[type="text"]:focus {
-    outline: none;
-    border-color: var(--color-primary);
-    box-shadow: 0 0 4px rgba(30, 77, 123, 0.3);
-}
-
-/* Garante o texto escuro nos inputs de linhas coloridas */
-.highlight-row input[type="text"],
-.novo-base input[type="text"],
-.valor-rebaixa input[type="text"],
-.incentivo input[type="text"],
-.mkp-shopper input[type="text"] {
-    background-color: rgba(255, 255, 255, 0.9);
-    color: var(--color-text);
+/* Ajusta a cor de fundo dos inputs nas células coloridas para que fiquem brancos */
+.highlight-row.novo-base .input-cell input[type="text"],
+.highlight-row.incentivo .input-cell input[type="text"],
+.mkp-shopper .input-cell input[type="text"] {
+    background-color: var(--color-white);
 }
 
 /* Valores de resultado */
@@ -325,21 +284,19 @@ input[type="text"]:focus {
     display: block;
     font-weight: 600;
     font-family: 'Courier New', monospace;
-    color: var(--color-text);
 }
 
-/* Garante texto branco nos resultados de linhas verdes */
-.highlight-row .result-value,
-.novo-base .result-value,
-.valor-rebaixa .result-value {
+/* Garante texto branco nos resultados das linhas azuis/verdes */
+.calculator-table tbody tr:not(.incentivo):not(.mkp-shopper) .result-value {
     color: var(--color-white);
 }
 
-/* Garante texto escuro nos resultados de linhas amarelas */
+/* Garante texto escuro nas linhas amarelas/pastéis */
 .incentivo .result-value,
 .mkp-shopper .result-value {
     color: var(--color-text);
 }
+
 
 /* Botões de ação */
 .action-buttons {
@@ -348,9 +305,54 @@ input[type="text"]:focus {
     justify-content: center; /* CENTRALIZADO */
     flex-wrap: wrap;
     margin-top: var(--spacing-lg);
+    grid-column: 1 / -1; /* Ocupa as duas colunas no grid-layout */
 }
 
-/* ... (Estilos dos Botões Mantidos) ... */
+.btn {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border: none;
+    border-radius: 4px;
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-calculate {
+    background-color: var(--color-success);
+    color: var(--color-white);
+}
+
+.btn-calculate:hover {
+    background-color: #388e3c;
+    box-shadow: 0 4px 8px rgba(76, 175, 80, 0.3);
+}
+
+.btn-reset {
+    background-color: var(--color-danger);
+    color: var(--color-white);
+}
+
+.btn-reset:hover {
+    background-color: #d32f2f;
+    box-shadow: 0 4px 8px rgba(244, 67, 54, 0.3);
+}
+
+.btn-print {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+.btn-print:hover {
+    background-color: #1a4165;
+    box-shadow: 0 4px 8px rgba(30, 77, 123, 0.3);
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
 
 /* Footer */
 .footer {
@@ -361,10 +363,12 @@ input[type="text"]:focus {
     border-radius: 8px;
     margin-top: var(--spacing-xl);
     font-size: var(--font-size-sm);
+    grid-column: 1 / -1; /* Ocupa as duas colunas no grid-layout */
 }
-/* CENTRALIZADO */
+
+/* Centraliza o texto do footer */
 .footer p {
     text-align: center;
 }
 
-/* ... (Responsividade Mantida com pequenos ajustes de largura) ... */
+/* ... (Responsividade Mantida) ... */
