@@ -124,4 +124,122 @@ body {
     font-size: var(--font-size-lg);
     font-weight: 700;
     text-align: center;
-    border-radius: 8px
+    border-radius: 8px 8px 0 0;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+/* Seção da calculadora */
+.calculator-section {
+    background: var(--color-white);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+/* Tabela */
+.calculator-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--font-size-base);
+}
+
+.calculator-table thead {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+.calculator-table th {
+    padding: var(--spacing-md);
+    text-align: left;
+    font-weight: 600;
+    border: 1px solid var(--color-primary);
+}
+/* Alinhamento da última coluna do cabeçalho */
+.calculator-table thead th:last-child {
+    text-align: right; 
+}
+
+
+.calculator-table td {
+    padding: var(--spacing-md);
+    border: 1px solid var(--color-border);
+    vertical-align: middle;
+}
+
+/* Células de label (Primeira Coluna A) */
+.label {
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+    font-weight: 500;
+    text-align: left;
+    width: 45%; 
+}
+
+/* Células de input (Segunda Coluna B) */
+.input-cell {
+    background-color: var(--color-white);
+    width: 30%; 
+}
+
+/* Células de resultado (Terceira Coluna D) - RESTAURADO O AZUL CLARO PADRÃO */
+.result-cell {
+    background-color: #e6f0ff; /* Azul Claro para resultado (RESTAURADO) */
+    font-weight: 600;
+    color: var(--color-text); /* Cor do texto padrão (preto) */
+    width: 25%; 
+    text-align: right;
+}
+
+/* --- ESTILOS POR LINHA --- */
+
+/* Linhas com fundo Azul Escuro (Padrão) */
+/* Removido o seletor para evitar conflito */
+
+/* Linhas de Destaque VERDE (Novo $ Base e Valor para Rebaixa) */
+.highlight-row.novo-base,
+.highlight-row.valor-rebaixa {
+    background-color: var(--color-success) !important;
+}
+
+/* Aplica o verde/branco no label e result-cell */
+.highlight-row.novo-base .label,
+.highlight-row.valor-rebaixa .label,
+.highlight-row.novo-base .result-cell,
+.highlight-row.valor-rebaixa .result-cell {
+    background-color: var(--color-success);
+    color: var(--color-white);
+}
+
+.highlight-row.novo-base .input-cell {
+    background-color: var(--color-success);
+}
+
+/* Linha de Incentivo (Amarelo Padrão) */
+.highlight-row.incentivo {
+    background-color: var(--color-warning) !important;
+    color: var(--color-text);
+}
+
+/* Aplica o amarelo/texto escuro no label e result-cell */
+.highlight-row.incentivo .label,
+.highlight-row.incentivo .result-cell,
+.highlight-row.incentivo .input-cell {
+    background-color: var(--color-warning);
+    color: var(--color-text);
+}
+
+/* Linha de MKP Shopper (Amarelo Pastel) */
+.mkp-shopper {
+    background-color: var(--color-mkp-shopper) !important;
+    color: var(--color-text);
+}
+
+/* Aplica o pastel/texto escuro no label e result-cell */
+.mkp-shopper .label,
+.mkp-shopper .input-cell,
+.mkp-shopper .result-cell
