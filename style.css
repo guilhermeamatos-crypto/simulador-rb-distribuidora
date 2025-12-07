@@ -81,11 +81,11 @@ body {
 
 /* NOVO: RB Logo menor (Ajustado para proporção) */
 .rb-logo-small {
-    max-height: 35px; /* Ajuste fino para proporcionalidade */
+    max-height: 100px; /* Ajuste fino para proporcionalidade */
 }
 
 .baston-logo { 
-    max-height: 45px; /* Ajuste fino para proporcionalidade */
+    max-height: 40px; /* Ajuste fino para proporcionalidade */
 }
 
 .header h1 {
