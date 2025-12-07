@@ -51,47 +51,47 @@ body {
     padding: var(--spacing-sm);
 }
 
-/* Header */
+/* Header - Ajustado Padding (Menor) e Logos */
 .header {
     background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
     color: var(--color-white);
-    padding: var(--spacing-lg);
+    padding: var(--spacing-md) var(--spacing-lg); /* Reduzido de lg para md */
     border-radius: 8px;
     margin-bottom: var(--spacing-lg);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    align-items: center; /* CENTRALIZADO */
+    align-items: center; 
     gap: var(--spacing-md);
 }
 
 .logo-section {
     display: flex;
-    gap: var(--spacing-lg);
+    gap: var(--spacing-md); /* Reduzido o espaço entre as logos */
     align-items: center;
     flex-wrap: wrap;
-    justify-content: center; /* CENTRALIZADO */
+    justify-content: center; 
 }
 
 .logo {
-    max-height: 60px;
+    max-height: 40px; /* Reduzido o tamanho da logo padrão */
     width: auto;
     filter: brightness(1.1);
 }
 
-/* NOVO: RB Logo menor */
+/* NOVO: RB Logo menor (Ajustado para proporção) */
 .rb-logo-small {
-    max-height: 60px; /* Reduzido o tamanho da logo RB */
+    max-height: 35px; /* Ajuste fino para proporcionalidade */
 }
 
 .baston-logo { 
-    max-height: 50px;
+    max-height: 45px; /* Ajuste fino para proporcionalidade */
 }
 
 .header h1 {
     font-size: var(--font-size-xl);
     font-weight: 600;
-    text-align: center; /* CENTRALIZADO */
+    text-align: center; 
     margin: 0;
 }
 
@@ -116,11 +116,11 @@ body {
     }
 }
 
-/* Estilo para os Títulos das Seções */
+/* Estilo para os Títulos das Seções - Diminuído pela metade */
 .section-title {
     background: var(--color-primary);
     color: var(--color-white);
-    padding: var(--spacing-sm) var(--spacing-md);
+    padding: var(--spacing-xs) var(--spacing-md); /* Reduzido de sm para xs */
     font-size: var(--font-size-lg);
     font-weight: 700;
     text-align: center;
@@ -197,9 +197,6 @@ body {
 
 /* --- ESTILOS POR LINHA --- */
 
-/* Linhas com fundo Azul Escuro (Padrão) */
-/* Removido o seletor para evitar conflito */
-
 /* Linhas de Destaque VERDE (Novo $ Base e Valor para Rebaixa) */
 .highlight-row.novo-base,
 .highlight-row.valor-rebaixa {
@@ -242,4 +239,295 @@ body {
 /* Aplica o pastel/texto escuro no label e result-cell */
 .mkp-shopper .label,
 .mkp-shopper .input-cell,
-.mkp-shopper .result-cell
+.mkp-shopper .result-cell {
+    background-color: var(--color-mkp-shopper);
+    color: var(--color-text);
+}
+
+
+/* Inputs */
+input[type="text"] {
+    width: 100%;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    font-size: var(--font-size-base);
+    font-family: 'Courier New', monospace;
+    background-color: var(--color-white);
+    color: var(--color-text);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    text-align: right; 
+}
+
+/* Ajusta a cor de fundo dos inputs nas células coloridas para que fiquem brancos */
+.highlight-row.novo-base .input-cell input[type="text"],
+.highlight-row.incentivo .input-cell input[type="text"],
+.mkp-shopper .input-cell input[type="text"] {
+    background-color: var(--color-white);
+}
+
+/* Valores de resultado */
+.result-value {
+    display: block;
+    font-weight: 600;
+    font-family: 'Courier New', monospace;
+    color: var(--color-text); /* Define a cor padrão do texto (PRETO) para o resultado */
+}
+
+/* Garante texto BRANCO apenas nos resultados das linhas de DESTAQUE VERDE */
+.highlight-row.novo-base .result-value,
+.highlight-row.valor-rebaixa .result-value {
+    color: var(--color-white) !important; 
+}
+/* As outras linhas (Azul Claro, Amarelo, Pastel) herdarão o preto de .result-value */
+
+
+/* Botões de ação - CENTRALIZADO */
+.action-buttons {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center; /* CENTRALIZADO */
+    flex-wrap: wrap;
+    margin-top: var(--spacing-lg);
+    grid-column: 1 / -1; 
+}
+
+.btn {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border: none;
+    border-radius: 4px;
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-calculate {
+    background-color: var(--color-success);
+    color: var(--color-white);
+}
+
+.btn-calculate:hover {
+    background-color: #388e3c;
+    box-shadow: 0 4px 8px rgba(76, 175, 80, 0.3);
+}
+
+.btn-reset {
+    background-color: var(--color-danger);
+    color: var(--color-white);
+}
+
+.btn-reset:hover {
+    background-color: #d32f2f;
+    box-shadow: 0 4px 8px rgba(244, 67, 54, 0.3);
+}
+
+.btn-print {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+.btn-print:hover {
+    background-color: #1a4165;
+    box-shadow: 0 4px 8px rgba(30, 77, 123, 0.3);
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+/* Footer - CENTRALIZADO */
+.footer {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    text-align: center; /* Centralização garantida */
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    margin-top: var(--spacing-xl);
+    font-size: var(--font-size-sm);
+    grid-column: 1 / -1; 
+}
+
+/* Centraliza o texto do footer */
+.footer p {
+    text-align: center;
+    margin: 0; /* Garante que não há margem extra que desalinhe */
+}
+
+/* Responsividade e Impressão (Ajustadas para o layout de grid) */
+@media (max-width: 1024px) {
+    .main-content.grid-layout {
+        grid-template-columns: 1fr; /* Volta a ser uma coluna em telas menores */
+    }
+}
+@media (max-width: 768px) {
+    .container {
+        padding: var(--spacing-xs);
+    }
+
+    .header {
+        padding: var(--spacing-md);
+        margin-bottom: var(--spacing-md);
+    }
+
+    .logo-section {
+        gap: var(--spacing-md);
+    }
+
+    .logo {
+        max-height: 35px; /* Ajuste para telas menores */
+    }
+    
+    .baston-logo {
+        max-height: 40px;
+    }
+
+    .header h1 {
+        font-size: var(--font-size-lg);
+    }
+
+    .calculator-table {
+        font-size: var(--font-size-sm);
+    }
+
+    .calculator-table th,
+    .calculator-table td {
+        padding: var(--spacing-sm);
+    }
+
+    .label {
+        width: 35%;
+    }
+
+    .input-cell {
+        width: 25%;
+    }
+
+    .result-cell {
+        width: 40%;
+    }
+
+    input[type="text"] {
+        padding: var(--spacing-xs);
+        font-size: var(--font-size-sm);
+    }
+
+    .action-buttons {
+        gap: var(--spacing-sm);
+    }
+
+    .btn {
+        padding: var(--spacing-sm) var(--spacing-md);
+        font-size: var(--font-size-sm);
+    }
+
+    .footer {
+        font-size: var(--font-size-sm);
+        padding: var(--spacing-md);
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        font-size: 14px;
+    }
+
+    .container {
+        padding: var(--spacing-xs);
+    }
+
+    .header {
+        padding: var(--spacing-md);
+        margin-bottom: var(--spacing-md);
+        gap: var(--spacing-sm);
+    }
+
+    .logo-section {
+        gap: var(--spacing-sm);
+        flex-direction: column;
+    }
+
+    .logo, .baston-logo {
+        max-height: 30px; /* Mais ajuste para telas muito pequenas */
+    }
+
+    .header h1 {
+        font-size: var(--font-size-base);
+    }
+
+    .calculator-section {
+        border-radius: 4px;
+    }
+
+    .calculator-table {
+        font-size: 0.75rem;
+    }
+
+    .calculator-table th,
+    .calculator-table td {
+        padding: 0.5rem;
+    }
+
+    .label {
+        width: 40%;
+        font-weight: 600;
+    }
+
+    .input-cell,
+    .result-cell {
+        width: 30%;
+    }
+
+    input[type="text"] {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.75rem;
+    }
+
+    .result-value {
+        font-size: 0.75rem;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+
+    .btn {
+        width: 100%;
+        padding: var(--spacing-sm);
+        font-size: var(--font-size-sm);
+    }
+
+    .footer {
+        font-size: 0.75rem;
+        padding: var(--spacing-sm);
+    }
+}
+
+@media print {
+    body {
+        background-color: var(--color-white);
+    }
+
+    .container {
+        max-width: 100%;
+    }
+
+    .action-buttons,
+    .footer {
+        display: none;
+    }
+
+    .calculator-section {
+        page-break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid var(--color-border);
+    }
+
+    .header {
+        box-shadow: none;
+        border: 1px solid var(--color-border);
+    }
+}
